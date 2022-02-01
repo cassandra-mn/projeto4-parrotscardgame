@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    background: #EEF9BF;
+}
+
+.titulo {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+.titulo h1 {
+    font-family: Roboto;
+    font-size: 56px;
+    line-height: 66px;
+    font-weight: bold;
+    text-align: center;
+    color: #75B79E;
+}
+
+@media (max-width: 614px) {
+    .titulo h1 {
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+    }
+} 
+
+.cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px 120px;
+}
+
+.carta {
+    width: 117px;
+    height: 146px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 22px 10px;
+    background: #A7E9AF;
+}
+
