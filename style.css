@@ -18,21 +18,15 @@
     color: #75B79E;
 }
 
-@media (max-width: 614px) {
-    .titulo h1 {
-        font-size: 36px;
-        line-height: 42px;
-        text-align: center;
-    }
-} 
-
 .cartas {
     width: 100vw;
     min-width: 140px;
+    margin-right: 120px;
+    margin-bottom: 30px;
+    padding: 0px 120px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-right: 120px;
 }
 
 .carta {
@@ -44,18 +38,51 @@
     border-radius: 5px;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
+
+@media (max-width: 614px) {
+    .titulo h1 {
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+    }
+
+    .cartas {
+        padding: 0px 50px;
+    }
+} 
 
 .verso {
     background-image: url(images/front.png);
-    background-position: center;
-    background-size: 100px;
-    background-repeat: no-repeat;
 }
 
-.frente {
+.frente1 {
     background-image: url(images/bobrossparrot.gif);
-    background-position: center;
-    background-size: 100px;
-    background-repeat: no-repeat;
+}
+
+.frente2 {
+    background-image: url(images/explodyparrot.gif);
+}
+
+.frente3 {
+    background-image: url(images/fiestaparrot.gif);
+}
+
+.frente4 {
+    background-image: url(images/metalparrot.gif);
+}
+
+.frente5 {
+    background-image: url(images/revertitparrot.gif);
+}
+
+.frente6 {
+    background-image: url(images/tripletsparrot.gif);
+}
+
+.frente7 {
+    background-image: url(images/unicornparrot.gif);
 }
