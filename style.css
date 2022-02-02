@@ -27,10 +27,12 @@
 } 
 
 .cartas {
+    width: 100vw;
+    min-width: 140px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0px 120px;
+    margin-right: 120px;
 }
 
 .carta {
@@ -42,7 +44,17 @@
     border-radius: 5px;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
+}
+
+.verso {
     background-image: url(images/front.png);
+    background-position: center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+
+.frente {
+    background-image: url(images/bobrossparrot.gif);
     background-position: center;
     background-size: 100px;
     background-repeat: no-repeat;
