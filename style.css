@@ -41,14 +41,9 @@
     margin-right: 10px;
     border-radius: 5px;
     background: #A7E9AF;
+    border: 1px solid #99CEA8;
     background-image: url(images/front.png);
     background-position: center;
     background-size: 100px;
     background-repeat: no-repeat;
-    border: 1px solid #99CEA8;
-}
-
-
-.virada {
-    background: chocolate;
 }
