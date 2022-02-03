@@ -2,12 +2,12 @@ let quantidadeCartas = null;
 let arrayCartas = [];
 
 iniciarJogo();
-arrayCartas.sort(comparador);
 
 function iniciarJogo() {
     perguntarQuantidadeCartas();
     distribuirCartas();
-    selecionar();
+    cartasAleatorias();
+    selecionarCarta();
 }
 
 function perguntarQuantidadeCartas() {
@@ -25,11 +25,14 @@ function distribuirCartas() {
     }
 }
 
-function comparador() {
-    return Math.random() - 0.5;
+function cartasAleatorias() {
+    arrayCartas.forEach(card => {
+        let rand = Math.floor(Math.random() * quantidadeCartas);
+        card.style.order = rand;
+    })
 }
 
-function selecionar() {
+function selecionarCarta() {
     let elemento = document.querySelectorAll(".carta");
     for (let cont = 0; cont < quantidadeCartas; cont++) {
         elemento[cont].addEventListener('click', function () {
@@ -56,8 +59,4 @@ function selecionar() {
             }
         });
     }
-}
-
-function mudarImagem() {
-    
 }

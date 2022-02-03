@@ -27,6 +27,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    transform: rotateY(180deg);
 }
 
 .carta {
@@ -36,10 +37,10 @@
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 5px;
-    background: #A7E9AF;
     border: 1px solid #99CEA8;
-    background-position: center;
+    background: #A7E9AF;
     background-size: 100px;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -57,32 +58,42 @@
 
 .verso {
     background-image: url(images/front.png);
+    transition: transform .5s;
+    transform-style: preserve-3d;
 }
 
 .frente1 {
     background-image: url(images/bobrossparrot.gif);
+    transform: rotateY(180deg);
 }
 
 .frente2 {
     background-image: url(images/explodyparrot.gif);
+    transform: rotateY(180deg);
+
 }
 
 .frente3 {
     background-image: url(images/fiestaparrot.gif);
+    transform: rotateY(180deg);
 }
 
 .frente4 {
     background-image: url(images/metalparrot.gif);
+    transform: rotateY(180deg);
 }
 
 .frente5 {
     background-image: url(images/revertitparrot.gif);
+    transform: rotateY(180deg);
 }
 
 .frente6 {
     background-image: url(images/tripletsparrot.gif);
+    transform: rotateY(180deg);
 }
 
 .frente7 {
     background-image: url(images/unicornparrot.gif);
+    transform: rotateY(180deg);
 }
