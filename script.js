@@ -1,13 +1,20 @@
 let quantidadeCartas = null;
 let arrayCartas = [];
+const gifs = ["bobrossparrot.gif","bobrossparrot.gif",
+"explodyparrot.gif","explodyparrot.gif",
+"fiestaparrot.gif","fiestaparrot.gif",
+"metalparrot.gif","metalparrot.gif",
+"revertitparrot.gif","revertitparrot.gif",
+"tripletsparrot.gif","tripletsparrot.gif",
+"unicornparrot.gif","unicornparrot.gif"];
 
 iniciarJogo();
 
 function iniciarJogo() {
     perguntarQuantidadeCartas();
     distribuirCartas();
+    armazenarCartas();
     cartasAleatorias();
-    selecionarCarta();
 }
 
 function perguntarQuantidadeCartas() {
@@ -17,11 +24,19 @@ function perguntarQuantidadeCartas() {
 }
 
 function distribuirCartas() {
-    for (let cont = 0; cont < quantidadeCartas; cont++) {
-        arrayCartas[cont] = document.createElement('div');
-        document.querySelector(".cartas").appendChild(arrayCartas[cont]);
-        arrayCartas[cont].classList.add("carta");
-        arrayCartas[cont].classList.add("verso");
+    let section = document.querySelector(".cartas");
+    for (let i = 0; i < quantidadeCartas; i++) {
+        section.innerHTML += `<div class="carta">
+        <img class="frente" src="images/${gifs[i]}"></img>
+        <img class="verso" src="images/front.png" onclick="selecionarCarta(this)"></img>
+        </div>`
+    }
+}
+
+function armazenarCartas() {
+    let lista = document.querySelectorAll(".carta");
+    for (let i = 0; i < lista.length; i++) {
+        arrayCartas[i] = lista[i];
     }
 }
 
@@ -32,31 +47,6 @@ function cartasAleatorias() {
     })
 }
 
-function selecionarCarta() {
-    let elemento = document.querySelectorAll(".carta");
-    for (let cont = 0; cont < quantidadeCartas; cont++) {
-        elemento[cont].addEventListener('click', function () {
-            if (cont < 2) {
-                arrayCartas[cont].classList.toggle("frente1");
-            }
-            else if (cont < 4) {
-                arrayCartas[cont].classList.toggle("frente2");
-            }
-            else if (cont < 6) {
-                arrayCartas[cont].classList.toggle("frente3");
-            }
-            else if (cont < 8) {
-                arrayCartas[cont].classList.toggle("frente4");
-            }
-            else if (cont < 10) {
-                arrayCartas[cont].classList.toggle("frente5");
-            }
-            else if (cont < 12) {
-                arrayCartas[cont].classList.toggle("frente6");
-            }
-            else {
-                arrayCartas[cont].classList.toggle("frente7");
-            }
-        });
-    }
+function selecionarCarta(cartaSelecionada) {
+    cartaSelecionada.remove();
 }

@@ -21,9 +21,9 @@
 .cartas {
     width: 100vw;
     min-width: 140px;
+    height: auto;
     margin-right: 120px;
     margin-bottom: 30px;
-    padding: 0px 120px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -38,10 +38,15 @@
     margin-right: 10px;
     border-radius: 5px;
     border: 1px solid #99CEA8;
+    position: relative;
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
     background: #A7E9AF;
-    background-size: 100px;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 @media (max-width: 614px) {
@@ -53,21 +58,22 @@
 
     .cartas {
         padding: 0px 50px;
+        margin: 0;
     }
 } 
 
-.verso {
+/* .verso {
     background-image: url(images/front.png);
     transition: transform .5s;
     transform-style: preserve-3d;
 }
 
-.frente1 {
+.frente {
     background-image: url(images/bobrossparrot.gif);
     transform: rotateY(180deg);
-}
+} */
 
-.frente2 {
+/* .frente2 {
     background-image: url(images/explodyparrot.gif);
     transform: rotateY(180deg);
 
@@ -96,4 +102,4 @@
 .frente7 {
     background-image: url(images/unicornparrot.gif);
     transform: rotateY(180deg);
-}
+} */
