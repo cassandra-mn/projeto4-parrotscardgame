@@ -8,11 +8,15 @@ let jogadas = 0;
 
 const gifs = ["bobrossparrot.gif", "bobrossparrot.gif", "explodyparrot.gif", "explodyparrot.gif", "fiestaparrot.gif", "fiestaparrot.gif", "metalparrot.gif", "metalparrot.gif", "revertitparrot.gif", "revertitparrot.gif", "tripletsparrot.gif", "tripletsparrot.gif", "unicornparrot.gif", "unicornparrot.gif"];
 
-perguntarQuantidadeCartas();
-distribuirCartas();
-armazenarCartas();
-embaralharCartas();
+iniciarPartida();
 
+function iniciarPartida() {
+    perguntarQuantidadeCartas();
+    distribuirCartas();
+    armazenarCartas();
+    embaralharCartas();
+}
+    
 function perguntarQuantidadeCartas() {
     while (quantidadeCartas % 2 !== 0 || quantidadeCartas < 4 || quantidadeCartas > 14) {
         quantidadeCartas = parseInt(prompt("Com quantas cartas você quer jogar? (Digite um número par de 4 à 14)"));
@@ -22,9 +26,10 @@ function perguntarQuantidadeCartas() {
 function distribuirCartas() {
     let section = document.querySelector(".cartas");
     for (let i = 0; i < quantidadeCartas; i++) {
-        section.innerHTML += `<div class="carta">
-        <img class="frente" src="images/${gifs[i]}"></img>
-        <img class="verso ident${i}" src="images/front.png" onclick="selecionarCarta(this,${i})"></img>
+        section.innerHTML += `
+        <div class="carta" data-identifier="card">
+            <div class="frente virar" data-identifier="front-face"> <img src="images/${gifs[i]}" /img> </div>
+            <div class="verso virar" data-identifier="back-face"> <img src="images/front.png" onclick="selecionarCarta(this,${i})" /img> </div>
         </div>`
     }
 }
@@ -94,5 +99,28 @@ function validarPosicao(p1, p2) {
 function finalizarJogo() {
     if (cont === quantidadeCartas / 2) {
         alert(`Você ganhou em ${jogadas} jogadas!`);
+        let reiniciar = prompt("Quer jogar novamente? (Digite sim ou não)");
+        if (reiniciar === "sim") {
+            resetar();
+        }
+        else if (reiniciar === "não") {
+            alert("Belezinha!");
+        }
+        else {
+            alert("Entrada inválida!");
+        }
     }
+}
+
+function resetar() {
+    let section = document.querySelector(".cartas");
+    section.innerHTML = "";
+    quantidadeCartas = null;
+    arrayCartas = [];
+    contadorDeJogadas = null;
+    posicao1 = null;
+    posicao2 = null;
+    cont = 0;
+    jogadas = 0;
+    iniciarPartida();
 }
