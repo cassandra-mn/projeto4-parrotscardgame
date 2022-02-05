@@ -3,16 +3,15 @@ let arrayCartas = [];
 let contadorDeJogadas = null;
 let posicao1 = null;
 let posicao2 = null;
+let cont = 0;
+let jogadas = 0;
+
 const gifs = ["bobrossparrot.gif", "bobrossparrot.gif", "explodyparrot.gif", "explodyparrot.gif", "fiestaparrot.gif", "fiestaparrot.gif", "metalparrot.gif", "metalparrot.gif", "revertitparrot.gif", "revertitparrot.gif", "tripletsparrot.gif", "tripletsparrot.gif", "unicornparrot.gif", "unicornparrot.gif"];
 
-iniciarJogo();
-
-function iniciarJogo() {
-    perguntarQuantidadeCartas();
-    distribuirCartas();
-    armazenarCartas();
-    embaralharCartas();
-}
+perguntarQuantidadeCartas();
+distribuirCartas();
+armazenarCartas();
+embaralharCartas();
 
 function perguntarQuantidadeCartas() {
     while (quantidadeCartas % 2 !== 0 || quantidadeCartas < 4 || quantidadeCartas > 14) {
@@ -59,11 +58,14 @@ function selecionarCarta(cartaSelecionada, j) {
                 selecionada.classList.add("fixar");
             }
             contadorDeJogadas = 0;
+            cont++;
         }
         else {
             setTimeout(desselecionarCarta, 1000);
         }
     }
+    jogadas++;
+    setTimeout(finalizarJogo, 500);
 }
 
 function desselecionarCarta() {
@@ -72,7 +74,7 @@ function desselecionarCarta() {
         let variavel = selecionadas[i];
         if (!variavel.classList.contains("fixar")) {
             variavel.classList.remove("esconder");
-        } 
+        }
         contadorDeJogadas = 0;
     }
 }
@@ -89,4 +91,8 @@ function validarPosicao(p1, p2) {
     }
 }
 
-// Se todos tiveram a classe "fixar" o jogo é finalizado
+function finalizarJogo() {
+    if (cont === quantidadeCartas / 2) {
+        alert(`Você ganhou em ${jogadas} jogadas!`);
+    }
+}
