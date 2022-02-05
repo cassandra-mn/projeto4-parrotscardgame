@@ -46,6 +46,7 @@ function embaralharCartas() {
 
 function selecionarCarta(cartaSelecionada, j) {
     cartaSelecionada.classList.add("esconder");
+    let verificar = document.querySelectorAll(".esconder");
     contadorDeJogadas++;
     if (contadorDeJogadas === 1) {
         posicao1 = j;
@@ -53,12 +54,10 @@ function selecionarCarta(cartaSelecionada, j) {
     if (contadorDeJogadas === 2) {
         posicao2 = j;
         if (validarPosicao(posicao1, posicao2)) {
-            cartaSelecionada.classList.add("fixar");
-            // let verificar = document.querySelectorAll("esconder");
-            // for (let i = 0; i < verificar.length; i++) {
-            //     verificar.classList.add("fixar");
-            //     console.log("Passou aqui");
-            // }
+            for (let i = 0; i < verificar.length; i++) {
+                let selecionada = verificar[i];
+                selecionada.classList.add("fixar");
+            }
             contadorDeJogadas = 0;
         }
         else {
@@ -89,3 +88,5 @@ function validarPosicao(p1, p2) {
         return false;
     }
 }
+
+// Se todos tiveram a classe "fixar" o jogo é finalizado
