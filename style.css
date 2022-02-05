@@ -1,16 +1,23 @@
 * {
     box-sizing: border-box;
     background: #EEF9BF;
+    font-family: Roboto;
+}
+
+.relogio {
+    font-size: 20px;
+    margin: 20px;
+    text-align: end;
+    color: #75B79E;
 }
 
 .titulo {
     width: 100%;
     height: auto;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 .titulo h1 {
-    font-family: Roboto;
     font-size: 56px;
     line-height: 66px;
     font-weight: bold;

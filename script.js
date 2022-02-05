@@ -5,8 +5,10 @@ let posicao1 = null;
 let posicao2 = null;
 let cont = 0;
 let jogadas = 0;
+let intervalo = 0;
 
 const gifs = ["bobrossparrot.gif", "bobrossparrot.gif", "explodyparrot.gif", "explodyparrot.gif", "fiestaparrot.gif", "fiestaparrot.gif", "metalparrot.gif", "metalparrot.gif", "revertitparrot.gif", "revertitparrot.gif", "tripletsparrot.gif", "tripletsparrot.gif", "unicornparrot.gif", "unicornparrot.gif"];
+const relogio = document.querySelector(".relogio");
 
 iniciarPartida();
 
@@ -32,6 +34,7 @@ function distribuirCartas() {
             <div class="verso virar" data-identifier="back-face"> <img src="images/front.png" onclick="selecionarCarta(this,${i})" /img> </div>
         </div>`
     }
+    intervalo = setInterval(aumentarContagem, 1000);
 }
 
 function armazenarCartas() {
@@ -98,7 +101,9 @@ function validarPosicao(p1, p2) {
 
 function finalizarJogo() {
     if (cont === quantidadeCartas / 2) {
-        alert(`Você ganhou em ${jogadas} jogadas!`);
+        clearInterval(intervalo);
+        alert(`Você ganhou com ${jogadas} jogadas, em ${relogio.innerHTML} segundos!`);
+        intervalo = 0;
         let reiniciar = prompt("Quer jogar novamente? (Digite sim ou não)");
         if (reiniciar === "sim") {
             resetar();
@@ -122,5 +127,11 @@ function resetar() {
     posicao2 = null;
     cont = 0;
     jogadas = 0;
+    intervalo = 0;
+    relogio.innerHTML = "0";
     iniciarPartida();
+}
+
+function aumentarContagem() {
+    relogio.innerHTML = parseInt(relogio.innerHTML) + 1; 
 }
