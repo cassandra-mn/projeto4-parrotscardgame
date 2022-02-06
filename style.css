@@ -4,17 +4,26 @@
     font-family: Roboto;
 }
 
-.relogio {
-    font-size: 20px;
-    margin: 20px;
-    text-align: end;
-    color: #75B79E;
+main {
+    width: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .titulo {
     width: 100%;
     height: auto;
-    /* margin-top: 40px; */
+    margin-top: 40px;
+}
+
+.time {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 75%;
+    display: flex;
+    color: #75B79E;
 }
 
 .titulo h1 {
@@ -30,6 +39,7 @@
     min-width: 140px;
     height: auto;
     padding: 10px 100px;
+    margin-top: 20px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -42,15 +52,10 @@
     margin-top: 30px;
     margin-left: 15px;
     margin-right: 15px;
-    border-radius: 5px;
-    border: 1px solid #99CEA8;
     position: relative;
-
-
 }
 
 img {
-    position: absolute;
     width: 100%;
     height: 100%;
     padding: 20px 10px;
@@ -76,4 +81,35 @@ img {
 
 .esconder {
     display: none;
+}
+
+.face {
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    border: 1px solid #99CEA8;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: all .5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.frente {
+    transform: rotateY(180deg);
+}
+
+.flip .frente {
+    transform: rotateY(0deg);
+}
+
+.flip .verso {
+    transform: rotateY(-180deg);
 }

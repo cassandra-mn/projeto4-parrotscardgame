@@ -29,9 +29,9 @@ function distribuirCartas() {
     let section = document.querySelector(".cartas");
     for (let i = 0; i < quantidadeCartas; i++) {
         section.innerHTML += `
-        <div class="carta" data-identifier="card">
-            <div class="frente virar" data-identifier="front-face"> <img src="images/${gifs[i]}" /img> </div>
-            <div class="verso virar" data-identifier="back-face"> <img src="images/front.png" onclick="selecionarCarta(this,${i})" /img> </div>
+        <div class="carta" data-identifier="card" onclick="flipCard(this)">
+            <div class="frente face" data-identifier="front-face"> <img src="images/${gifs[i]}" /img> </div>
+            <div class="verso face" data-identifier="back-face"> <img src="images/front.png" onclick="selecionarCarta(this,${i})" /img> </div>
         </div>`
     }
     intervalo = setInterval(aumentarContagem, 1000);
@@ -60,10 +60,12 @@ function selecionarCarta(cartaSelecionada, j) {
     }
     if (contadorDeJogadas === 2) {
         posicao2 = j;
+
         if (validarPosicao(posicao1, posicao2)) {
             for (let i = 0; i < verificar.length; i++) {
                 let selecionada = verificar[i];
                 selecionada.classList.add("fixar");
+
             }
             contadorDeJogadas = 0;
             cont++;
@@ -82,6 +84,7 @@ function desselecionarCarta() {
         let variavel = selecionadas[i];
         if (!variavel.classList.contains("fixar")) {
             variavel.classList.remove("esconder");
+            variavel.parentNode.parentNode.classList.remove("flip");
         }
         contadorDeJogadas = 0;
     }
@@ -134,4 +137,8 @@ function resetar() {
 
 function aumentarContagem() {
     relogio.innerHTML = parseInt(relogio.innerHTML) + 1; 
+}
+
+function flipCard(selecionada) {
+    selecionada.classList.add('flip');
 }
